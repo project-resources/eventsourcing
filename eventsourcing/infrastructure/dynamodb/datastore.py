@@ -51,7 +51,10 @@ class DynamoDbDatastore(AbstractDatastore):
                 continue
 
     def drop_table(self, table: Model) -> None:
-        table.delete_table()
+        try:
+            table.delete_table()
+        except TableError:
+            pass
 
     def truncate_tables(self):
         """
