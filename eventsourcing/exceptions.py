@@ -1,5 +1,10 @@
 class EventSourcingError(Exception):
     """Base eventsourcing exception."""
+    def __repr__(self):
+        return repr(type(self)) + " " + repr(self.args)
+
+    def __str__(self):
+        return repr(type(self)) + " " + repr(self.args)
 
 
 class TopicResolutionError(EventSourcingError):
