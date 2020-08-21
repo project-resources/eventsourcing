@@ -14,11 +14,12 @@ if "READTHEDOCS" in os.environ:
 install_requires = [
     "python-dateutil<=2.8.99999",
     "pycryptodome<=3.9.99999",
-    "requests<=2.23.99999",
+    "requests>=2.23,<2.25",
     "readerwriterlock<=1.0.99999",
 ]
 
-sqlalchemy_requires = ["sqlalchemy<=1.3.99999,>=0.9", "sqlalchemy-utils<=0.36.99999"]
+sqlalchemy_requires = ["sqlalchemy<=1.3.99999,>=0.9",
+                       "sqlalchemy-utils<=0.36.99999"]
 
 axonserver_requires = ["axonclient<=0.0.99999"]
 
@@ -28,7 +29,7 @@ thespian_requires = ["thespian<=3.10.99999"]
 
 cassandra_requires = ["cassandra-driver<=3.23.99999"]
 
-django_requires = ["django<=3.0.99999"]
+django_requires = ["django<=3.1.99999"]
 
 testing_requires = (
     cassandra_requires
@@ -63,7 +64,8 @@ docs_requires = testing_requires + [
     "sphinx-autobuild",
 ]
 
-dev_requires = docs_requires + ["black", "mypy", "flake8", "flake8-bugbear", "isort"]
+dev_requires = docs_requires + \
+    ["black", "mypy", "flake8", "flake8-bugbear", "isort"]
 
 long_description = """
 A library for event sourcing in Python.
